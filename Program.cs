@@ -167,7 +167,6 @@ namespace Projet_perso_Cocktail
             return cocktails;
         }
     }
-
     class Program 
     {
         static List<Cocktail> GetCocktailsFromCode()
@@ -181,7 +180,6 @@ namespace Projet_perso_Cocktail
                 new Cocktail("Lagon Bleu", 10.5f, false, new List<string> { "pamplemousse", "menthe", "schweppes" }),
                 new Cocktail("Long Drink", 7f, true, new List<string> { "romarin", "cordial", "pamplemousse" }),
             };
-
             return cocktails;
         }
 
@@ -243,7 +241,6 @@ namespace Projet_perso_Cocktail
                     cocktail.Display();
                 }
             }
-
         }
     }
 }
