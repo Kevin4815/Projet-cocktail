@@ -14,28 +14,47 @@ namespace Projet_perso_Cocktail
         public CocktailPerso() : base("Cocktail personnalisé", 5, false, null)
         {
             this.ingredients = new List<string>();
+            BuyCocktailChoosen();
+        }
 
+        public void BuyCocktailChoosen()
+        {
             Console.WriteLine("Vous souhaitez: \n" +
                "1 - Choisir un cocktail dans la liste\n" +
                "2 - Créer votre cocktail personnalisée");
 
             string choice_str = Console.ReadLine();
-            int choice_int = int.Parse(choice_str);
-            
-            switch (choice_int)
+            try
             {
-                case 1:
-                    Console.Write("Quel cocktail choisissez-vous ? : ");
-                    string choiceCocktail = Console.ReadLine();
-                    choiceCocktail = choiceCocktail.ToUpper();
+                int choice_int = int.Parse(choice_str);
 
-                    Console.WriteLine("Vous avez choisi le " + choiceCocktail);
+                switch (choice_int)
+                {
+                    case 1:
+                        Console.Write("Quel cocktail choisissez-vous ? : ");
+                        string choiceCocktail = Console.ReadLine();
+                        choiceCocktail = choiceCocktail.ToUpper();
 
-                    cocktailList = true;
-                    break;
-                case 2:
-                    CocktailIngredients();
-                    break;
+                        Console.WriteLine("Vous avez choisi le " + choiceCocktail);
+                        cocktailList = true;
+                        break;
+                    case 2:
+                        Console.Clear();
+                        CocktailIngredients();
+                        break;
+
+                    default:
+                        Console.WriteLine("ERREUR: Le choix entrée n'est pas valide");
+                        Console.WriteLine();
+                        BuyCocktailChoosen();
+                        break;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("ERREUR : Vous devez entrer un nombre");
+                Console.WriteLine();
+                BuyCocktailChoosen();
             }
         }
         public void CocktailIngredients()
